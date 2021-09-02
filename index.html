@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css"
+      integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o="
+      crossorigin="anonymous"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solar System</title>
+  </head>
+  <body>
+    <section id="loading-screen">
+      <div id="loader"></div>
+    </section>
+
+    <canvas id="bg"></canvas>
+
+    <main>
+      <div class="container">
+        <input type="checkbox" id="check" />
+        <label for="check" class="open"><i class="fas fa-bars"></i></label>
+
+        <div class="sidebar-wrapper">
+          <div class="sidebar">
+            <div class="title-wrapper">
+              <label for="check" class="close"
+                ><i class="fas fa-times"></i
+              ></label>
+              <p class="userName">Explore</p>
+            </div>
+            <nav>
+              <ul class="menu">
+                <li>
+                  <a href="#" id="sun"> The Sun</a>
+                </li>
+                <li>
+                  <a href="#" id="mercury"> Mercury</a>
+                </li>
+                <li>
+                  <a href="#" id="venus"> Venus</a>
+                </li>
+                <li>
+                  <a href="#" id="earth"> Earth</a>
+                </li>
+                <li>
+                  <a href="#" id="mars"> Mars</a>
+                </li>
+                <li>
+                  <a href="#" id="jupiter"> Jupiter</a>
+                </li>
+                <li>
+                  <a href="#" id="saturn"> Saturn</a>
+                </li>
+                <li>
+                  <a href="#" id="uranus"> Uranus</a>
+                </li>
+                <li>
+                  <a href="#" id="neptune"> Neptune</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script type="module" src="/main.js" defer></script>
+  </body>
+</html>
