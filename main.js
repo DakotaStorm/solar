@@ -8,19 +8,6 @@ import { UnrealBloomPass } from "/node_modules/three/examples/jsm/postprocessing
 import gsap from "gsap";
 import { Camera } from "three";
 
-/*Loading Screen
-var loadingScreen = {
-  scene: new THREE.Scene(),
-  camera: new THREE.PerspectiveCamera(90, 1280 / 720, 0.1, 100),
-  box: new THREE.Mesh(
-    new THREE.BoxGeometry(0.5, 0.5, 0.5),
-    new THREE.MeshBasicMaterial({ color: 0x4444ff })
-  ),
-};
-var loadingManager = null;
-var RESOURCES_LOADED = false;
-*/
-
 //Set-Up
 const scene = new THREE.Scene();
 const fov = 75;
@@ -42,11 +29,6 @@ renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
 camera.position.setZ(-5);
 camera.position.setX(1300);
-
-/*loadingScreen.box.position.set(0, 0, 5);
-loadingScreen.camera.lookAt(loadingScreen.box.position);
-loadingScreen.scene.add(loadingScreen.box);
-*/
 
 const onTransitionEnd = (event) => {
   event.target.remove();
@@ -255,9 +237,9 @@ const bRing = new THREE.Mesh(
 
 saturn.position.set(102000, 0, 0);
 aRing.position.set(102000, 0, 0);
-aRing.rotation.x = 1.5;
+aRing.rotation.x = 1.8;
 bRing.position.set(102000, 0, 0);
-bRing.rotation.x = 1.5;
+bRing.rotation.x = 1.8;
 scene.add(saturn, aRing, bRing);
 
 //Uranus
@@ -302,89 +284,99 @@ window.addEventListener(
 
 //On Click Functions
 
-const cameraPivot = new THREE.Object3D();
-sun.add(cameraPivot);
-cameraPivot.add(camera);
-
 document.getElementById("sun").addEventListener("click", (e) => {
   e.preventDefault();
-  sun.add(cameraPivot);
-  camera.position.setX(2000);
-  camera.position.setZ(-5);
+  gsap.to(camera.position, {
+    duration: 6,
+    x: 2000,
+    z: -5,
+    ease: "power1",
+  });
 });
 
 document.getElementById("mercury").addEventListener("click", (e) => {
   e.preventDefault();
-  mercury.add(cameraPivot);
-  camera.position.setX(8);
-  camera.position.setZ(-2);
+  gsap.to(camera.position, {
+    duration: 6,
+    x: 4108,
+    z: -2,
+    ease: "power1",
+  });
 });
 
 document.getElementById("venus").addEventListener("click", (e) => {
   e.preventDefault();
-  venus.add(cameraPivot);
-  camera.position.setX(17.2);
-  camera.position.setZ(-5);
+  gsap.to(camera.position, {
+    duration: 6,
+    x: 7717.2,
+    z: -5,
+    ease: "power1",
+  });
 });
 
 document.getElementById("earth").addEventListener("click", (e) => {
   e.preventDefault();
-  earth.add(cameraPivot);
-  camera.position.setX(18);
-  camera.position.setZ(-5);
+  gsap.to(camera.position, {
+    duration: 6,
+    x: 10618,
+    z: -5,
+    ease: "power1",
+  });
 });
 
 document.getElementById("mars").addEventListener("click", (e) => {
   e.preventDefault();
-  mars.add(cameraPivot);
-  camera.position.setX(9.6);
-  camera.position.setZ(-2);
+  gsap.to(camera.position, {
+    duration: 6,
+    x: 16209.6,
+    z: -2,
+    ease: "power1",
+  });
 });
 
 document.getElementById("jupiter").addEventListener("click", (e) => {
   e.preventDefault();
-  jupiter.add(cameraPivot);
-  camera.position.setX(204);
-  camera.position.setZ(-10);
+  gsap.to(camera.position, {
+    duration: 6,
+    x: 55204,
+    z: -10,
+    ease: "power1",
+  });
 });
 
 document.getElementById("saturn").addEventListener("click", (e) => {
   e.preventDefault();
-  saturn.add(cameraPivot);
-  camera.position.setX(170);
-  camera.position.setZ(-10);
+  gsap.to(camera.position, {
+    duration: 6,
+    x: 102180,
+    z: -10,
+    ease: "power1",
+  });
 });
 
 document.getElementById("uranus").addEventListener("click", (e) => {
   e.preventDefault();
-  uranus.add(cameraPivot);
-  camera.position.setX(72);
-  camera.position.setZ(-15);
+  gsap.to(camera.position, {
+    duration: 6,
+    x: 205072,
+    z: -15,
+    ease: "power1",
+  });
 });
 
 document.getElementById("neptune").addEventListener("click", (e) => {
   e.preventDefault();
-  neptune.add(cameraPivot);
-  camera.position.setX(70);
-  camera.position.setZ(-15);
+  gsap.to(camera.position, {
+    duration: 6,
+    x: 320070,
+    z: -15,
+    ease: "power1",
+  });
 });
 
 //Animate
 const animate = () => {
-  /*if (RESOURCES_LOADED == false) {
-    requestAnimationFrame(animate);
-
-    loadingScreen.box.position.x -= 0.05;
-    if (loadingScreen.box.position.x < -10) loadingScreen.box.position.x = 10;
-    loadingScreen.box.position.y = Math.sin(loadingScreen.box.position.x);
-
-    renderer.render(loadingScreen.scene, loadingScreen.camera);
-    return;
-  }
-  */
   requestAnimationFrame(animate);
-
-  cameraPivot.rotation.y += 0.001;
 
   sun.rotation.y += 0.01;
   sun.rotation.x += 0.01;
